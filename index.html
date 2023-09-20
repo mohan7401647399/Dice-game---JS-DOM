@@ -27,64 +27,8 @@
       </div>
       <p id="result"></p>
       <button id="reset" class="reset" onclick="myLoad()">Reset</button>
+      <p id="click"></p>
     </div>
-    <script>
-      const roll1 = document.querySelector(".roll1"); //roll button
-      const roll2 = document.querySelector(".roll2"); //roll button
-      const playerScore1 = document.querySelector(".player1num"); //scores
-      const playerScore2 = document.querySelector(".player2num"); //scores
-      const resetbtn = document.getElementById("reset"); //reset
-      playerScore1.textContent = 0;
-      playerScore2.textContent = 0;
-
-      function rollDice() {
-        return Math.floor(Math.random() * 6) + 1;
-      }
-      roll1.addEventListener("click", () => {
-        document.querySelector("#roll-button1").disabled = true;
-        document.getElementById("play").innerText = "Player-2 To Play";
-        document.querySelector("#roll-button2").disabled = false;
-      });
-      roll2.addEventListener("click", () => {
-        document.querySelector("#roll-button2").disabled = true;
-        document.getElementById("play").innerText = "Player-1 To Play";
-        document.querySelector("#roll-button1").disabled = false;
-      });
-
-      let currentPoint1 = 0;
-      let currentPoint2 = 0;
-      const resultText = document.getElementById("result");
-
-      roll1.addEventListener("click", () => {
-        const dice = rollDice();
-        dice1.src = `${dice}.png`;
-        if (dice !== 0) {
-          currentPoint1 += dice;
-          playerScore1.textContent = currentPoint1;
-          if (currentPoint1 >= 30) resultText.innerText = "Player 1 wins!";
-        }
-      });
-
-      roll2.addEventListener("click", () => {
-        const dice = rollDice();
-        dice1.src = `${dice}.png`;
-        if (dice !== 0) {
-          currentPoint2 += dice;
-          playerScore2.textContent = currentPoint2;
-          if (currentPoint2 >= 30) resultText.innerText = "Player 2 wins!";
-        }
-      });
-
-      if (currentPoint1 || currentPoint2 >= 30 ) {
-          disabled = true;
-      }
-      
-      // document.querySelector("#roll-button2").disabled = true;
-
-      resetbtn.addEventListener("click", () => {
-        window.location.reload();
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
-;
